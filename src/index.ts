@@ -5,9 +5,9 @@ const fs = require('fs-extra');
 export const createPdf = async (filePath: string, options = {}, data = {}) => {
   try {
     const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu'],
     });
-    
+
     const page = await browser.newPage();
 
     hbs.registerHelper('ifCond', function(
